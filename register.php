@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会員登録</title>
     <div>
-        <form action="confirm.php" method="post">
+        <form action="register_reveiw.php" method="post">
             <table>
                 <thead>
                 <tr>

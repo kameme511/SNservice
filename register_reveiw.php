@@ -19,7 +19,7 @@ $_SESSION['content'] = $content;
  * 今回は値が入力されているかのみを確認する
  * -------------------------------------------------- */
 if(empty($name) == true || empty($content) == true) {
-    redirect('/top.html');
+  require_once 'private/failure_post.php';
 }
 
 /* ----------------------------------------

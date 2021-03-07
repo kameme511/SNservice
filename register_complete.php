@@ -2,7 +2,6 @@
 /* ------------------------------
  * 必要なファイルを読み込む
  * ------------------------------ */
-require_once 'private/bootstrap.php';
 require_once 'private/database.php';
 
 /** @var PDO $dbh データベースハンドラ */
@@ -24,7 +23,7 @@ $token = $_POST['token'];
  * -------------------------------------------------- */
 if($token != $_SESSION['token']) {
     unset($_SESSION['token']);
-    redirect('/index.php');
+    require_once 'private/failure_post.php';
 }
 
 /* ----------------------------------------
@@ -36,7 +35,7 @@ $content = $_SESSION['content'];
 /* --------------------
  * データのインサート処理
  * -------------------- */
-$statement = $dbh->prepare('INSERT INTO `articles`(name, content) VALUE(:name, :content)');
+$statement = $dbh->prepare('INSERT INTO `user_articles`(name, content) VALUE(:name, :content)');
 $statement->execute([
     'name' => $name,
     'content' => $content,
@@ -65,7 +64,7 @@ setcookie('userName',$name, time()+60*60*24*14);
         <h1>登録成功</h1>
     </header>
     <main>
-        <a href="index.php">戻る</a>
+        <a href="index.html">戻る</a>
     </main>
     <footer>
         <hr>

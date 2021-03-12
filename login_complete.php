@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
 /* ------------------------------
  * 必要なファイルを読み込む
  * ------------------------------ */
@@ -44,7 +46,6 @@ if($result['content'] != $content){
   require_once 'private/pfailure_post.php';
 }
 $_SESSION['name'] = $name;
-setcookie('userName',$name, time()+60*60*24*14);
 ?>
 
 <!-- 描画するHTML -->

@@ -1,8 +1,7 @@
 <?php
 session_start();
-$token = strval(time());
+$token = uniqid(dechex(random_int(0, 255)));
 $_SESSION['token'] = $token;
-
 ?>
 <html lang="ja">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -30,7 +29,7 @@ $_SESSION['token'] = $token;
                 </tr>
                 </tbody>
             </table>
-            <input type="hidden" name="token" value="<?= $token ?>">
+            <input type="hidden" name="token" value="<?=$token?>">
             <button type="submit" class="btn btn-success">ログイン</button>
         </form>
     </div>

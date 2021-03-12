@@ -21,7 +21,7 @@ unset($_SESSION['name']);
         <h1>またお越しください、<?= $name ?>さん</h1>
     </header>
     <main>
-        <a href="index.html">戻る</a>
+        <a href="/">戻る</a>
     </main>
     <footer>
         <hr>

@@ -25,4 +25,4 @@ try {
    echo $result['ObjectURL'] . PHP_EOL;
 } catch (S3Exception $e) {
    echo $e->getMessage() . PHP_EOL;
-}
+} 

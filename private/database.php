@@ -10,7 +10,7 @@
  * ---------------------------------------------------------------------- */
 define('DB_HOST', 'database-k.cqri7qvgc2h0.ap-northeast-1.rds.amazonaws.com');
 define('DB_PORT', 3306);
-define('DB_NAME', 'database-k');
+define('DB_NAME', 'users');
 define('DB_USER', 'developer');
 define('DB_PASSWORD', 'Jagapote0511');
 

@@ -10,6 +10,14 @@ session_start();
 $name = $_SESSION['name'];
 $content =  $_POST['content'];
 $_SESSION['content'] = $content;
+if($_FILES['upimg']['name']){
+    $tmpname = str_replace('/tmp/','',$_FILES['upimg']['tmp_name']);
+    $new_filename = 'files/'.$tmpname.'-'.time().'.'.'png';
+    $upimg = fopen($_FILES['upimg']['tmp_name'],'rb');
+    $img = fread($upimg, filesize($_FILES['upimg']['tmp_name']));
+    fclose($upimg);
+    require_once 'private/upimg.php';
+  }
 /* --------------------------------------------------
  * 値のバリデーションを行う
  *
@@ -26,7 +34,8 @@ if(empty($content) == true) {
  * ---------------------------------------- */
 $token = strval(time());
 $_SESSION['token'] = $token;
-
+echo "$new_filename";
+echo "$path";
 ?>
 
 <!-- 描画するHTML -->
@@ -48,16 +57,26 @@ $_SESSION['token'] = $token;
             <tbody>
             <tr><th>名前</th><td><?= htmlspecialchars($name); ?></td></tr>
             <tr><th>投稿内容</th><td><?= htmlspecialchars($content); ?></td></tr>
-            </tbody>
+            <?php
+            if(isset($_FILES['upimg']['name'])){
+            echo "<tr><th>画像</th><td>".htmlspecialchars($_FILES['upimg']['name'])."</td></tr>";  
+        }
+        ?>
+        </tbody>
         </table>
         <form action="con_complete.php" method="post">
+            <?php
+            if(isset($path)){
+            echo "<input type='hidden' name='path' value='$path'>";
+            }
+            ?>
             <input type="hidden" name="token" value="<?= $token ?>">
             <button type="submit">投稿</button>
         </form>
     </main>
     <footer>
         <hr>
-        <div>_〆(・ω・;)</div>
+        <div>_〆(ω;)</div>
     </footer>
 </body>
 </html>

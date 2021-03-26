@@ -14,6 +14,9 @@ session_start();
  * 送られてきた値を取得する
  * ------------------------------ */
 $token = $_POST['token'];
+if(isset($_POST['path'])){
+    $path = $_POST['path'];
+    }
 $content = $_SESSION['content'];
 /* --------------------------------------------------
  * 送られてきたトークンのバリデーション
@@ -33,14 +36,14 @@ if(empty($content) == true) {
  * ---------------------------------------- */
 $name = $_SESSION['name'];
 $content = $_SESSION['content'];
-
 /* --------------------
  * データのインサート処理
  * -------------------- */
-$statement = $dbh->prepare('INSERT INTO `bbs`(name, content) VALUE(:name, :content)');
+$statement = $dbh->prepare('INSERT INTO `bbs`(name, content, picture) VALUE(:name, :content, :picture)');
 $statement->execute([
     'name' => $name,
     'content' => $content,
+    'picture' => $path,
     ]);
 /* ----------------------------------------
  * セッション内のデータを削除する

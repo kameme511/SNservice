@@ -1,17 +1,25 @@
 <!doctype html>
-<?php require_once 'private/database.php'; ?>
+<?php
+require_once 'private/database.php';
+require_once 'private/bootstrap.php';
+?>
 <html lang="ja">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>onegai</title>
-    <nav role="navigation">
-    	<ul>
-    		<li id="menu-item-81" class=" "><a href="">About</a></li>
-    	</ul>
-		</nav>
+    <title>portfolio</title>
+<style>
+body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100px;
+  text-align: center;
+}
+</style>
 </head>
   <body>
     <header>

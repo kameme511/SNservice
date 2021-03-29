@@ -1,5 +1,7 @@
 <html lang="ja">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<?php
+require_once 'private/bootstrap.php';
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -24,7 +26,12 @@
                 </tr>
                 </tbody>
             </table>
-            <a>パスワードは、半角英数字で入力する必要があります。</a></br>
+            <?php
+            if(empty($_POST['name'] != true)){
+            echo "<font size='2'>その名前は既に使用されています。</font></br>";
+            }
+            ?>
+            <font size="2">パスワードは半角英数字で入力する必要があります。</font></br>
             <button type="submit" class="btn btn-success">登録</button>
         </form>
     </div>

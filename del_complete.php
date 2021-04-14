@@ -33,7 +33,7 @@ if(empty($value) == true && empty($com_value) == true) {
  * -------------------- */
 if(isset($value)){
 foreach($value as $id){
-  $statement = $dbh->prepare('UPDATE `bbs` SET name = "あぼん", content = "削除されました" WHERE id = :id');
+  $statement = $dbh->prepare('UPDATE `bbs` SET name = "あぼん", content = "削除されました", picture = "" WHERE id = :id');
   $statement->execute([
   'id' => $id,
 ]);

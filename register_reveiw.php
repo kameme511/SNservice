@@ -30,7 +30,7 @@ $statement->execute([
 if($statement->rowCount() != 0){
     unset($_SESSION['name']);
     unset($_SESSION['content']);
-    header('location:/register.php', true, 307);
+    header('location:register.php', true, 307);
     exit;
 }
 
